@@ -1,2 +1,8 @@
-# ai-course
-ai-course
+# AI-course
+人工智能培训课件资源
+
+1、大语言模型运行环境安装
+
+2、GLM-4安装与微调
+
+3、LLama3安装与微调

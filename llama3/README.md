@@ -55,7 +55,7 @@ CUDA_VISIBLE_DEVICES=0 INT8=true python llama3-gradio.py
 # 微调
 CUDA_VISIBLE_DEVICES=0 python llama3-train.py --load_in_8bit
 # 合并模型
-python merge_lora_weights.py \
+INT8=true python merge_lora_weights.py \
 --base_model ./dataroot/models/NousResearch/Meta-Llama-3.1-8B-Instruct \
 --peft_model output/PEFT/model \
 --output_dir output/merged/model

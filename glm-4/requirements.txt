@@ -1,6 +1,6 @@
 # basic
-torch==2.1.2
-torchvision==0.16.2
+torch==2.1.0
+torchvision==0.16.0
 transformers==4.40
 huggingface-hub==0.23.0
 sentencepiece==0.2.0

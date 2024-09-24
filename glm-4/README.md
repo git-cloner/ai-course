@@ -45,6 +45,7 @@ MODEL_PATH=dataroot/models/THUDM/glm-4-9b-chat \
 python web_demo_int8.py
 # 验证
 打开浏览器，访问：http://服务器IP:8000
+# 如：http://161.189.161.252:8000
 ```
 
 ## 二、微调
@@ -70,7 +71,7 @@ dataroot/models/THUDM/glm-4-9b-chat \
 configs/lora.yaml
 ```
 
-#### （2）P-tuning
+#### （2）P-tuning微调
 
 ```shell
 CUDA_VISIBLE_DEVICES=0 \
