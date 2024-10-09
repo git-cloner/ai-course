@@ -5,7 +5,9 @@
 ### 1、下载源码
 
 ```shell
+# clone代码
 git clone https://github.com/little51/llama3-tools
+# 切换目录
 cd llama3-tools
 ```
 

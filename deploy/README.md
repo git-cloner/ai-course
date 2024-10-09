@@ -126,11 +126,10 @@ conda -V
 # 挂载硬盘
 sudo fdisk -l
 sudo mkdir /data
-sudo mkfs -t ext4 /dev/nvme0n1
-sudo mount /dev/nvme0n1 /data
+sudo mkfs -t ext4 /dev/nvme1n1
+sudo mount /dev/nvme1n1 /data
 sudo chown -R ubuntu:ubuntu /data
 # 扩虚拟内存
-sudo swapoff /data/swapfile
 sudo dd if=/dev/zero of=/data/swapfile bs=1M count=10240
 sudo chmod 0600 /data/swapfile
 sudo mkswap /data/swapfile
