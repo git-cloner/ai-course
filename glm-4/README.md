@@ -92,3 +92,21 @@ python web_demo_int8.py
 打开浏览器，访问：http://服务器IP:8000
 ```
 
+## 三、openai_api服务
+
+```shell
+# 安装vllm库
+pip install vllm==0.6.1 \
+-i https://pypi.mirrors.ustc.edu.cn/simple
+# 安装sse库
+pip install sse_starlette==2.1.3 \
+-i https://pypi.mirrors.ustc.edu.cn/simple
+# 降级transformers
+pip install transformers==4.43.2 \
+-i https://pypi.mirrors.ustc.edu.cn/simple
+# 启动API服务
+CUDA_VISIBLE_DEVICES=0 \
+MODEL_PATH=dataroot/models/THUDM/glm-4-9b-chat \
+python openai_api_server.py
+```
+
