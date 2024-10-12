@@ -95,18 +95,27 @@ python web_demo_int8.py
 ## 三、openai_api服务
 
 ```shell
-# 安装vllm库
+# 1、安装vllm
 pip install vllm==0.6.1 \
 -i https://pypi.mirrors.ustc.edu.cn/simple
-# 安装sse库
+# 2、安装sse
 pip install sse_starlette==2.1.3 \
 -i https://pypi.mirrors.ustc.edu.cn/simple
-# 降级transformers
+# 3、降级transformers
 pip install transformers==4.43.2 \
 -i https://pypi.mirrors.ustc.edu.cn/simple
-# 启动API服务
+# 4、安装sentence-transformers
+pip install sentence_transformers==3.2.0 \
+-i https://pypi.mirrors.ustc.edu.cn/simple
+# 5、下载向量模型到以下目录
+# dataroot/models/BAAI/bge-m3
+python model_download.py --e \
+--repo_id BAAI/bge-m3 \
+--token YPY8KHDQ2NAHQ2SG
+# 6、启动API服务
 CUDA_VISIBLE_DEVICES=0 \
 MODEL_PATH=dataroot/models/THUDM/glm-4-9b-chat \
+EMBEDDING_PATH=dataroot/models/BAAI/bge-m3 \
 python openai_api_server.py
 ```
 

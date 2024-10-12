@@ -9,6 +9,7 @@ import json
 import torch
 import random
 import string
+import tiktoken
 from vllm import SamplingParams, AsyncEngineArgs, AsyncLLMEngine
 from fastapi import FastAPI, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
@@ -17,6 +18,8 @@ from typing import List, Literal, Optional, Union
 from pydantic import BaseModel, Field
 from transformers import AutoTokenizer, LogitsProcessor
 from sse_starlette.sse import EventSourceResponse
+from sentence_transformers import SentenceTransformer
+from vllm.entrypoints.openai.protocol import EmbeddingRequest, EmbeddingResponse
 
 EventSourceResponse.DEFAULT_PING_INTERVAL = 1000
 
@@ -660,6 +663,51 @@ async def parse_output_text(model_id: str, value: str, function_call: ChoiceDelt
     yield "{}".format(chunk.model_dump_json(exclude_unset=True))
     yield '[DONE]'
 
+EMBEDDING_PATH = os.environ.get('EMBEDDING_PATH', 'BAAI/bge-m3')
+embedding_model = SentenceTransformer(EMBEDDING_PATH, device="cuda")
+
+
+class CompletionUsage(BaseModel):
+    prompt_tokens: int
+    completion_tokens: int
+    total_tokens: int
+
+
+@app.post("/v1/embeddings", response_model=EmbeddingResponse)
+async def get_embeddings(request: EmbeddingRequest):
+    if isinstance(request.input, str):
+        embeddings = [embedding_model.encode(request.input)]
+    else:
+        embeddings = [embedding_model.encode(text)
+                      for text in request.input]
+    embeddings = [embedding.tolist()
+                  for embedding in embeddings]
+
+    def num_tokens_from_string(string: str) -> int:
+        encoding = tiktoken.get_encoding('cl100k_base')
+        num_tokens = len(encoding.encode(string))
+        return num_tokens
+
+    response = {
+        "data": [
+            {
+                "object": "embedding",
+                "embedding": embedding,
+                "index": index
+            }
+            for index, embedding in enumerate(embeddings)
+        ],
+        "model": request.model,
+        "object": "list",
+        "usage": CompletionUsage(
+            prompt_tokens=sum(len(text.split())
+                              for text in request.input),
+            completion_tokens=0,
+            total_tokens=sum(num_tokens_from_string(text)
+                             for text in request.input),
+        )
+    }
+    return response
 
 if __name__ == "__main__":
     tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True)
