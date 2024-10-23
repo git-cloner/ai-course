@@ -1,9 +1,12 @@
 # AI-course（人工智能培训课件资源）
-## 1、大语言模型运行环境安装
 
-## 2、GLM-4安装与微调
+## [1、大语言模型运行环境安装](https://github.com/git-cloner/ai-course/tree/main/deploy)
 
-## 3、LLama3安装与微调
+## [2、GLM-4安装与微调](https://github.com/git-cloner/ai-course/tree/main/glm-4)
+
+## [3、LLama3安装与微调](https://github.com/git-cloner/ai-course/tree/main/llama3)
+
+## [4、RAG-QAnything应用](https://github.com/git-cloner/ai-course/tree/main/rag)
 
 
 
