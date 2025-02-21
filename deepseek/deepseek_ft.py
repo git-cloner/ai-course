@@ -131,7 +131,7 @@ def generate():
     global model, tokenizer, prompt_style
     question = "男，42岁，发热1周，经过治疗后热势已减，但仍感觉疲倦乏力，该首选哪些药物进行治疗？"
     FastLanguageModel.for_inference(model)
-    inputs = tokenizer([prompt_style.format(question, "")],
+    inputs = tokenizer([prompt_style.format(question, "", "")],
                        return_tensors="pt").to("cuda")
     outputs = model.generate(
         input_ids=inputs.input_ids,

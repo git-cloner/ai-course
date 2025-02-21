@@ -40,7 +40,10 @@ python model_download.py \
 ## 四、微调
 
 ```shell
+# 微调过程
 CUDA_VISIBLE_DEVICES=0 \
 python deepseek_ft.py
+# 语料修改（如需要改）
+# 将dataroot/datasets/FreedomAI/medical-o1-reasoning-SFT/medical_o1_sft_Chinese.json复制到当前目录下，替换train_data.json后修改
 ```
 
