@@ -68,3 +68,18 @@ streamlit run chat_bot.py
 http://服务器IP:8501
 ```
 
+## 六、测试装入7B模型（FP8精度）
+
+```shell
+# 下载7B模型，共需15G左右GPU内存
+python model_download.py --e \
+--repo_id deepseek-ai/DeepSeek-R1-Distill-Qwen-7B \
+--token YPY8KHDQ2NAHQ2SG
+# 以FP8精度装载7B模型
+CUDA_VISIBLE_DEVICES=0 vllm serve \
+dataroot/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B \
+--max-model-len 8192 --disable-log-stats --enforce-eager \
+--host 0.0.0.0 --port 8000 --served-model-name deepseek \
+--dtype=half --gpu-memory-utilization 0.7 --quantization fp8
+```
+
