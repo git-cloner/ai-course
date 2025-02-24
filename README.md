@@ -8,7 +8,7 @@
 
 ## [4、RAG-QAnything应用](https://github.com/git-cloner/ai-course/tree/main/rag)
 
-## [5、DeepSeekR1安装](https://github.com/git-cloner/ai-course/tree/main/deepseek)
+## [5、DeepSeekR1安装与微调](https://github.com/git-cloner/ai-course/tree/main/deepseek)
 
 ## 作者新书：
 
