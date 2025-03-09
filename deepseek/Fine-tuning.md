@@ -47,3 +47,38 @@ python deepseek_ft.py
 # 将dataroot/datasets/FreedomAI/medical-o1-reasoning-SFT/medical_o1_sft_Chinese.json复制到当前目录下，替换train_data.json后修改
 ```
 
+## 五、合并原始模型和Lora微调模型
+
+```bash
+# 安装依赖库
+pip install fire==0.7.0 -i https://pypi.mirrors.ustc.edu.cn/simple
+# 合并
+CUDA_VISIBLE_DEVICES=0 \
+python merge_lora_weights.py \
+--base_model dataroot/models/deepseek-ai/DeepSeek-R1-Distill-Llama-8B \
+--peft_model output/PEFT/model/checkpoint-100 \
+--output_dir output/merged/model
+```
+
+## 六、验证合并后的模型
+
+```bash
+# 安装vLLM
+pip install vllm==0.6.3.post1 \
+-i https://pypi.mirrors.ustc.edu.cn/simple
+# 安装Chat_bot依赖环境
+pip install openai==1.52.2 streamlit==1.39.0 streamlit_chat==0.1.1 \
+httpx==0.27.2 -i https://pypi.mirrors.ustc.edu.cn/simple
+# 运行模型API服务
+CUDA_VISIBLE_DEVICES=0 \
+vllm serve output/merged/model \
+--max-model-len 8192 --disable-log-stats --enforce-eager \
+--host 0.0.0.0 --port 8000 --served-model-name deepseek \
+--dtype=half --gpu-memory-utilization 0.9
+# 运行Chat_bot
+# 新开shell
+cd /data/deepseek
+conda activate deepseek
+streamlit run chat_bot.py
+```
+

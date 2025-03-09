@@ -91,13 +91,13 @@ def _load_dataset():
 def train():
     global model, tokenizer, dataset
     training_arguments = TrainingArguments(
-        num_train_epochs=5,             # 训练轮数
+        num_train_epochs=20,             # 训练轮数
         per_device_train_batch_size=8,  # 批次大小
         gradient_accumulation_steps=2,  # 根据批次大小调整
         gradient_checkpointing=True,
         warmup_steps=50,                # 预热步骤
         learning_rate=1e-4,             # 学习率
-        fp16=True,
+        fp16=False,
         bf16=False,                     
         logging_steps=10,               # 减少日志频率，提高效率
         max_grad_norm=1.0,              # 梯度剪切值
