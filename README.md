@@ -10,6 +10,10 @@
 
 ## [5、DeepSeekR1安装与微调](https://github.com/git-cloner/ai-course/tree/main/deepseek)
 
+## 《大模型项目实战：多领域智能应用》和《大模型项目实战：Agent开发与应用》图书技术交流群
+
+![](https://gitclone.com/download1/aliendao/aliendao1.jpg)
+
 ## 作者新书：
 
 ### 《大模型项目实战：多领域智能应用》
@@ -19,6 +23,7 @@
 [图书官方直营：https://item.jd.com/14810472.html](https://item.jd.com/14810472.html)
 
 ![图书](https://gitclone.com/download1/llm-dev/llm-dev.png)
+![图书](https://gitclone.com/download1/ai-agent/agent-dev1.png)
 
 #### 目录
 
