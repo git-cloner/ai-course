@@ -1,4 +1,4 @@
-# DeepSeekR1安装、[微调](https://github.com/git-cloner/ai-course/blob/main/deepseek/Fine-tuning.md)、[蒸馏](https://github.com/git-cloner/ai-course/blob/main/deepseek/DeepSeek-distill.md)
+# DeepSeekR1安装、[微调](https://github.com/git-cloner/ai-course/blob/main/deepseek/Fine-tuning.md)、[蒸馏与强化学习](https://github.com/git-cloner/ai-course/blob/main/deepseek/DeepSeek-distill.md)
 
 ## 一、建立虚拟环境
 

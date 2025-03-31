@@ -8,7 +8,7 @@
 
 ## [4、RAG-QAnything应用](https://github.com/git-cloner/ai-course/tree/main/rag)
 
-## [5、DeepSeekR1安装与微调](https://github.com/git-cloner/ai-course/tree/main/deepseek)
+## [5、DeepSeekR1安装、微调、蒸馏、强化学习](https://github.com/git-cloner/ai-course/tree/main/deepseek)
 
 ## 《大模型项目实战：多领域智能应用》和《大模型项目实战：Agent开发与应用》图书技术交流群
 

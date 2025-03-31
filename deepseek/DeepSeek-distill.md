@@ -1,4 +1,4 @@
-# DeepSeek复现之蒸馏模型
+# DeepSeek复现（蒸馏与强化学习）
 
 ## 一、基本环境搭建
 
@@ -112,5 +112,28 @@ vllm serve output/Qwen2.5-1.5B-Open-R1-Distill \
 --max-model-len 8192 --disable-log-stats --enforce-eager \
 --host 0.0.0.0 --port 8000 --served-model-name open-r1 \
 --dtype=half --gpu-memory-utilization 0.9
+```
+
+## 五、强化学习
+
+```bash
+CUDA_VISIBLE_DEVICES=1 \
+accelerate launch --config_file recipes/accelerate_configs/zero2.yaml \
+--num_processes 1 \
+src/open_r1/grpo.py \
+--config recipes/DeepSeek-R1-Distill-Qwen-1.5B/grpo/config_demo.yaml  \
+--model_name_or_path dataroot/models/Qwen/Qwen2.5-1.5B-Instruct \
+--dataset_name dataroot/datasets/open-r1/OpenR1-Math-220k \
+--output_dir output/Qwen2.5-1.5B-Open-R1-GRPO \
+--learning_rate 1.0e-5 \
+--num_train_epochs 1 \
+--per_device_train_batch_size 2 \
+--per_device_eval_batch_size 2 \
+--num_generations 2 \
+--report_to none \
+--push_to_hub false \
+--use_vllm false \
+--use_peft \
+--lora_target_modules down_proj o_proj k_proj q_proj gate_proj up_proj v_proj
 ```
 
