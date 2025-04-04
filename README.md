@@ -14,6 +14,8 @@
 
 ![](https://gitclone.com/download1/aliendao/aliendao20250402.jpg)
 
+![](https://gitclone.com/download1/aliendao/weixin-aliendao.jpg)
+
 ## 作者新书：
 
 ### 《大模型项目实战：多领域智能应用》
