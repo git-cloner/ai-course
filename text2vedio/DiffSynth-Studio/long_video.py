@@ -1,7 +1,6 @@
 import torch
-from diffsynth import ModelManager, WanVideoPipeline, save_video, VideoData
+from diffsynth import ModelManager, WanVideoPipeline, save_video
 import imageio
-import numpy as np
 from PIL import Image
 
 negative_prompt = """色调艳丽，过曝，静态，细节模糊不清，字幕，
@@ -49,7 +48,7 @@ def Load_models_i2v():
             basePath + "/models_t5_umt5-xxl-enc-bf16.pth",
             basePath + "/Wan2.1_VAE.pth",
         ],
-        torch_dtype=torch.float8_e4m3fn,
+        torch_dtype=torch.float8_e4m3fn,  # FP8 量化
     )
     pipe = WanVideoPipeline.from_model_manager(
         model_manager, torch_dtype=torch.bfloat16, device="cuda")
@@ -99,7 +98,7 @@ def Get_image_from_Video(video):
 
 
 if __name__ == "__main__":
-    # 　定义提示词
+    # 定义提示词，分为不同的场景
     prompts = [
         "开场画面：镜头缓缓推进，捕捉阳光透过树叶洒在一位朴素端庄的东方美女身上。她穿着华美的唐朝服饰，衣袍随风轻轻摇曳。",
         "特写镜头：美女的手轻柔地捧着一卷古色古香的书卷，指尖轻抚其封面，展现出细腻的手指和书卷上的精美花纹。",
