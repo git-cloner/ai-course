@@ -10,6 +10,8 @@
 
 ## [5、DeepSeekR1安装、微调、蒸馏、强化学习](https://github.com/git-cloner/ai-course/tree/main/deepseek)
 
+## [6、文本生成视频应用](https://github.com/git-cloner/ai-course/tree/main/text2vedio)
+
 ## 《大模型项目实战：多领域智能应用》和《大模型项目实战：Agent开发与应用》图书技术交流群
 
 ![](https://gitclone.com/download1/aliendao/aliendao20250409.jpg)
