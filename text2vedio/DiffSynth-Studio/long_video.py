@@ -122,5 +122,6 @@ if __name__ == "__main__":
         out_video = 'video' + str(num) + '.mp4'
         Image_to_video(pipe_i2v, prompts[num], image, out_video)
         videos.append(out_video)
-    # 合并视频
-    Video_merge(videos, 'full_video.mp4')
+        # 合并视频
+        Video_merge(videos, 'full_video.mp4')
+    
