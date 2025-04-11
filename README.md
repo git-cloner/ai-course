@@ -16,7 +16,7 @@
 
 ![](https://gitclone.com/download1/aliendao/aliendao20250409.jpg)
 
-![](https://gitclone.com/download1/aliendao/weixin-aliendao.jpg)
+![](https://gitclone.com/download1/aliendao/weixin-aliendao1.jpg)
 
 ## 作者新书：
 
