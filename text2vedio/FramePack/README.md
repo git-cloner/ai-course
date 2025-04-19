@@ -22,15 +22,24 @@ git checkout 4292ab9
 ## 三、安装依赖库
 
 ```shell
-# 创建虚拟环境
+# ！注意，在Windows上安装时，将命令中的“\”去掉，保持在一行上执行
+# 1、创建虚拟环境
 conda create -n FramePack python=3.10 -y
-# 激活虚拟环境
+# 2、激活虚拟环境
 conda activate FramePack
-# 安装PyTorch
+# 3、安装PyTorch
+#（1）Linux
 pip install torch torchvision torchaudio \
 --index-url https://download.pytorch.org/whl/cu126 \
 -i https://pypi.mirrors.ustc.edu.cn/simple
-# 安装其他依赖库
+#（2）Windows
+#   ！注意：Windows下安装时，要去掉
+#   -i https://pypi.mirrors.ustc.edu.cn/simple ，不能指定镜像，否则安装的是CPU版
+pip install torch torchvision torchaudio \
+--index-url https://download.pytorch.org/whl/cu126
+# 验证PyTorch
+python -c "import torch; print(torch.cuda.is_available())"
+# 4、安装其他依赖库
 pip install -r requirements.txt \
 -i https://pypi.mirrors.ustc.edu.cn/simple
 ```
