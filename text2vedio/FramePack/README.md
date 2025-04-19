@@ -3,7 +3,7 @@
 ## 一、硬件及软件要求
 
 ```shell
-1、Linux
+1、Linux 或 Windows
 2、至少6G GPU（建议使用RTX4090）
 3、安装显卡驱动、CUDA12.4、Anaconda
 ```
@@ -48,7 +48,12 @@ pip install -r requirements.txt \
 
 ```shell
 #　运行服务
+# 1、Linux
 HF_ENDPOINT=https://hf-mirror.com CUDA_VISIBLE_DEVICES=0 python demo_gradio.py
+# 2、Windows
+set HF_ENDPOINT=https://hf-mirror.com
+set CUDA_VISIBLE_DEVICES=0
+python demo_gradio.py
 # 测试
 # http://服务器IP:7860/
 ```
