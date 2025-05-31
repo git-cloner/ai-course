@@ -4,9 +4,9 @@
 
 ```shell
 # 建立工作目录
-git clone https://github.com/git-cloner/ai-course
+mkdir deepseek
 # 切换到工作目录
-cd ai-course/deepseek 
+cd deepseek 
 # 创建虚拟环境
 conda create -n deepseek0528 python=3.12 -y
 # 激活虚拟环境
@@ -16,14 +16,10 @@ conda activate deepseek0528
 ## 二、安装依赖库
 
 ```shell
-# 安装VLLM
-pip install vllm==0.9.0 \
--i https://pypi.mirrors.ustc.edu.cn/simple
+# 安装VLLM和open-webui
+pip install vllm==0.9.0 open-webui==0.6.13 -i https://pypi.mirrors.ustc.edu.cn/simple
 # 验证PyTorch（如果显示True则为正常）
 python -c "import torch; print(torch.cuda.is_available())"
-# 安装WEB页面依赖库
-pip install openai==1.52.2 streamlit==1.39.0 streamlit_chat==0.1.1 \
-httpx==0.27.2 -i https://pypi.mirrors.ustc.edu.cn/simple
 ```
 
 ## 三、下载模型
@@ -57,14 +53,19 @@ vllm serve models/deepseek-ai/DeepSeek-R1-0528-Qwen3-8B \
 # gpu-memory-utilization 用于模型执行器的 GPU 内存比例
 ```
 
-## 五、运行WEB界面服务
+## 五、运行open-webui
 
 ```shell
 # 新开shell，激活虚拟环境
 conda activate deepseek0528
 # 运行Web界面服务
-streamlit run chat_bot.py
+OPENAI_API_BASE_URL=http://127.0.0.1:8000/v1 \
+ENABLE_OLLAMA_API=False \
+DEFAULT_MODELS="deepseek" \
+HF_HUB_OFFLINE=1 \
+HF_ENDPOINT=https://hf-mirror.com \
+open-webui serve
 # 访问Web界面
-http://服务器IP:8501
+http://服务器IP:8080
 ```
 
