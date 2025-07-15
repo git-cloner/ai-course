@@ -16,7 +16,7 @@
 
 ## 《大模型项目实战：多领域智能应用》和《大模型项目实战：Agent开发与应用》图书技术交流群
 
-![](https://gitclone.com/download1/aliendao/aliendao20250709.jpg)
+![](https://gitclone.com/download1/aliendao/aliendao20250716.jpg)
 
 ![](https://gitclone.com/download1/aliendao/weixin-aliendao2.jpg)
 
