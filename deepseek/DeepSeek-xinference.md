@@ -1,4 +1,4 @@
-# 在Windows上使用Xinference部署DeepSeek
+# 在Windows上使用Xinference部署DeepSeek（非OLlama）
 
 ## 一、建立虚拟环境
 
