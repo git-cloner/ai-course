@@ -18,7 +18,9 @@ pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https
 ```shell
 # 权重下载（下载的10个文件放到weights目录）
 https://hf-mirror.com/Qwen/Qwen2.5-0.5B/tree/main
-# 微调
+# 微调（补全）
 python train_demo.py
+# 微调（对话）
+python train_chat_demo.py
 ```
 
