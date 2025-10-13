@@ -22,5 +22,7 @@ https://hf-mirror.com/Qwen/Qwen2.5-0.5B/tree/main
 python train_demo.py
 # 微调（对话）
 python train_chat_demo.py
+# 使用微调后的权重
+python ft_chat_demo.py
 ```
 
