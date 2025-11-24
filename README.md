@@ -14,9 +14,7 @@
 
 ## [7、QwQ-32B安装](https://github.com/git-cloner/ai-course/blob/main/QwQ/QwQ.md)
 
-## 《大模型项目实战：多领域智能应用》和《大模型项目实战：Agent开发与应用》图书技术交流群
-
-![](https://gitclone.com/download1/aliendao/aliendao20251117.jpg)
+## 异型岛微信公众号
 
 ![](https://gitclone.com/download1/aliendao/weixin-aliendao2.jpg)
 
